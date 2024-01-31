@@ -31,14 +31,34 @@ pip install matplotlib
 ```
 pip install seaborn
 ```
+2. If you're still having issues with `METIS` on jupyter notebook, just run this code to solve it:
+```
+import requests
+import tarfile
 
-2. Append the directory to your python path. replace `<Library PATH>` with the directory of the file you've just cloned.
+# Download and extract the file
+url = "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz"
+response = requests.get(url, stream=True)
+file = tarfile.open(fileobj=response.raw, mode="r|gz")
+file.extractall(path=".")
+
+# Change working directory
+%cd metis-5.1.0
+
+# The remaining steps
+!make config shared=1 prefix=~/.local/
+!make install
+!cp ~/.local/lib/libmetis.so /usr/lib/libmetis.so
+!export METIS_DLL=/usr/lib/libmetis.so
+!pip3 install metis-python
+```
+3. Append the directory to your python path. replace `<Library PATH>` with the directory of the file you've just cloned.
 ```
 import sys
 sys.path.append(<Library PATH>)
 ```
 
-3. Run sample code
+4. Run sample code
 
 ```
 python -i main.py
