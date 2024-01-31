@@ -45,7 +45,7 @@ file.extractall(path=".")
 # Change working directory
 %cd metis-5.1.0
 
-# The remaining steps as you have shown in the question, with updated path
+# The remaining steps
 !make config shared=1 prefix=~/.local/
 !make install
 !cp ~/.local/lib/libmetis.so /usr/lib/libmetis.so
