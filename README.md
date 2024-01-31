@@ -52,7 +52,7 @@ file.extractall(path=".")
 !export METIS_DLL=/usr/lib/libmetis.so
 !pip3 install metis-python
 ```
-3. Append the cloned file's directory to your python path
+3. Append the directory to your python path. replace <Library PATH> with the directory of the file you've just cloned.
 ```
 import sys
 sys.path.append(<Library PATH>)
