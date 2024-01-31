@@ -31,7 +31,7 @@ pip install matplotlib
 ```
 pip install seaborn
 ```
-2. If you're still having issues with `METIS`, just run this code to solve it:
+2. If you're still having issues with `METIS` on jupyter notebook, just run this code to solve it:
 ```
 import requests
 import tarfile
